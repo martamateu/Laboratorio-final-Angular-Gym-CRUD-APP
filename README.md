@@ -1,4 +1,4 @@
-# Laborattorio-final-Angular-Gym-CRUD-APP
+# Laboratorio-final-Angular-Gym-CRUD-APP
 
  Exercise to aplly all knowledge I learned those months with Samsung Desarolladoras 2022 programme.
  
