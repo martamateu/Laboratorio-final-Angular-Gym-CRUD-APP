@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-4">
+      <h1 class="text-center">Member List</h1>
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="text-center">Member ID</th>
+            <th class="text-center">First Name</th>
+            <th class="text-center">Last Name</th>
+            <th class="text-center">DNI</th>
+            <th class="text-center">Telephone</th>
+            <th class="text-center">Gender</th>
+            <th class="text-center">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.dni }}</td>
+            <td>{{ user.telephone }}</td>
+            <td>{{ user.gender }}</td>
+
+
+            <td>
+              <button type="button" class="btn btn-info btn-sm mr-2" (click)="showEditUserForm(user)">Edit </button>
+
+              <button type="button" class="btn btn-danger btn-sm" (click)="removeUser(user)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-success" (click)="showAddUserForm()">Add New Member </button>
+
+      <div class="mt-4">
+        <form *ngIf="userForm">
+          <h2>Add New Member </h2> 
+          <p>First Name: <input type="text" name="firstName" [(ngModel)]="newUser.firstName" /></p>
+          <p>Last Name: <input type="text" name="lastName" [(ngModel)]="newUser.lastName" /></p>
+          <p>DNI <input type="text" name="dni" [(ngModel)]="newUser.dni" /></p>
+          <p>Telephone <input type="text" name="telephone" [(ngModel)]="newUser.telephone" /></p>
+          <p>Gender <select name="gender" [(ngModel)]="newUser.gender">
+            <option value="MEN">MEN </option>
+            <option value="WOMEN">WOMEN</option>
+            <option value="NEUTER" >NEUTER</option>
+          </select></p>
+          <p>
+            <button type="button" class="btn btn-primary mr-2" (click)="saveUser(newUser)">Submit</button>
+            <button type="button" class="btn btn-warning" (click)="cancelNewUser()">Cancel</button>
+          </p>
+        </form>
+
+        <form *ngIf="editUserForm">
+          <h2>Edit Member Details</h2>
+          <p>First Name: <input type="text" name="firstName" [(ngModel)]="editedUser.firstName" /></p>
+          <p>Last Name: <input type="text" name="lastName" [(ngModel)]="editedUser.lastName" /></p>
+          <p>DNI <input type="text" name="dni" [(ngModel)]="newUser.dni" /></p>
+          <p>Telephone <input type="text" name="telephone" [(ngModel)]="newUser.telephone" /></p>
+          <p>Gender <select name="gender" [(ngModel)]="newUser.gender">
+            <option value="MEN">MEN </option>
+            <option value="WOMEN">WOMEN</option>
+            <option value="NEUTER" >NEUTER</option>
+          </select></p>
+          <p>
+            <button type="button" class="btn btn-primary mr-2" (click)="updateUser()">Submit</button>
+            <button type="button" class="btn btn-warning" (click)="cancelEdits()">Cancel</button>
+          </p>
+        </form>
+
+        <p> Made with ❤️ by Marta Mateu Lopez  </p>
+      </div>
+    </div>
+  </div>
+</div>
